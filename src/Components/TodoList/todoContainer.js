@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Header from './header';
+import InputTodo from './inputTodo';
 import TodoList from './todoList';
 
 const TodoContainer = () => {
@@ -21,6 +22,11 @@ const TodoContainer = () => {
     },
   ]);
 
+  const addTodoItem = (title) => {
+    const newTodo = { id: 4, title: title, completed: false };
+    setTodos([...todos, newTodo]);
+  };
+
   const handleCheckboxChange = (id) => {
     setTodos((prevState) =>
       prevState.map((todo) => {
@@ -41,12 +47,12 @@ const TodoContainer = () => {
         return todo.id !== id;
       }),
     ]);
-    console.log('deleted', id);
   };
 
   return (
     <div className="todo-container">
       <Header />
+      <InputTodo addTodoItem={addTodoItem} />
       <TodoList
         todos={todos}
         handleCheckboxChange={handleCheckboxChange}
