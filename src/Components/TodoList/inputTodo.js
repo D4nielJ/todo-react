@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const InputTodo = (props) => {
   const [title, setTitle] = useState('');
@@ -25,6 +26,14 @@ const InputTodo = (props) => {
       <button type="submit">Submit</button>
     </form>
   );
+};
+
+InputTodo.propTypes = {
+  addTodoItem: PropTypes.func,
+};
+
+InputTodo.defaultProps = {
+  addTodoItem: () => {},
 };
 
 export default InputTodo;
