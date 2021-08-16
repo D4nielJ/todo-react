@@ -20,6 +20,7 @@ const InputTodo = (props) => {
         placeholder="Add Todo..."
         value={title}
         onChange={onChange}
+        required
       />
       <button type="submit">Submit</button>
     </form>
