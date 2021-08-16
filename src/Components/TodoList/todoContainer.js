@@ -21,10 +21,37 @@ const TodoContainer = () => {
     },
   ]);
 
+  const handleCheckboxChange = (id) => {
+    setTodos((prevState) =>
+      prevState.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    );
+  };
+
+  const deleteTodo = (id) => {
+    setTodos([
+      ...todos.filter((todo) => {
+        return todo.id !== id;
+      }),
+    ]);
+    console.log('deleted', id);
+  };
+
   return (
     <div className="todo-container">
       <Header />
-      <TodoList todos={todos} />
+      <TodoList
+        todos={todos}
+        handleCheckboxChange={handleCheckboxChange}
+        deleteTodo={deleteTodo}
+      />
     </div>
   );
 };
