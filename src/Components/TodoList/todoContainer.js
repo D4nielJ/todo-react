@@ -1,30 +1,15 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Header from './header';
 import InputTodo from './inputTodo';
 import TodoList from './todoList';
 
 const TodoContainer = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: 'Setup development environment',
-      completed: true,
-    },
-    {
-      id: 2,
-      title: 'Develop website and add content',
-      completed: false,
-    },
-    {
-      id: 3,
-      title: 'Deploy to live server',
-      completed: false,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   const addTodoItem = (title) => {
     const newTodo = {
-      id: 4,
+      id: uuidv4(),
       title: title,
       completed: false,
     };
