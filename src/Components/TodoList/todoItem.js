@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const TodoItem = (props) => {
   const {
-    key: id,
+    id,
     completed,
     title,
     handleCheckboxChange,
@@ -27,7 +27,7 @@ const TodoItem = (props) => {
 TodoItem.propTypes = {
   title: PropTypes.string,
   completed: PropTypes.bool,
-  key: PropTypes.string,
+  id: PropTypes.string,
   handleCheckboxChange: PropTypes.func,
   deleteTodo: PropTypes.func,
 };
@@ -35,7 +35,7 @@ TodoItem.propTypes = {
 TodoItem.defaultProps = {
   title: '',
   completed: false,
-  key: '0',
+  id: '0',
   handleCheckboxChange: () => {},
   deleteTodo: () => {},
 };

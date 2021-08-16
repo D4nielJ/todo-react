@@ -17,8 +17,8 @@ const TodoContainer = () => {
   };
 
   const handleCheckboxChange = (id) => {
-    setTodos((prevState) =>
-      prevState.map((todo) => {
+    setTodos([
+      ...todos.map((todo) => {
         if (todo.id === id) {
           return {
             ...todo,
@@ -27,7 +27,7 @@ const TodoContainer = () => {
         }
         return todo;
       }),
-    );
+    ]);
   };
 
   const deleteTodo = (id) => {

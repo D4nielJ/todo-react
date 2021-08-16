@@ -8,6 +8,7 @@ const TodoList = (props) => {
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
+          id={todo.id}
           completed={todo.completed}
           title={todo.title}
           handleCheckboxChange={handleCheckboxChange}
