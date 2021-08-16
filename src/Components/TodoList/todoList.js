@@ -8,7 +8,8 @@ const TodoList = (props) => {
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
-          todo={todo}
+          completed={todo.completed}
+          title={todo.title}
           handleCheckboxChange={handleCheckboxChange}
           deleteTodo={deleteTodo}
         />
@@ -18,7 +19,13 @@ const TodoList = (props) => {
 };
 
 TodoList.propTypes = {
-  todos: PropTypes.array,
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      completed: PropTypes.bool,
+      title: PropTypes.string,
+    }),
+  ),
   handleCheckboxChange: PropTypes.func,
   deleteTodo: PropTypes.func,
 };
